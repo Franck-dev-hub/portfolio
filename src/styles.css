@@ -1,0 +1,18 @@
+:root {
+  --bg: #1d232a;
+  --primary-color: #667eea;
+  --secondary-color: #9066ea;
+  --text-color: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "RobotoMono Nerd Font", monospace;
+  background-color: #2c2c2c;
+  color: var(--primary-color);
+}
