@@ -1,0 +1,7 @@
+.waybar {
+  display: flex;
+  background-color: #222;
+  justify-content: space-between;
+  padding: 6px 18px;
+  font-size: 0.8rem;
+}
