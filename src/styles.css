@@ -1,18 +1,82 @@
 :root {
-  --bg: #1d232a;
+  /* Main colors */
   --primary-color: #667eea;
   --secondary-color: #9066ea;
-  --text-color: #ffffff;
+
+  /* Main backgrounds */
+  --bg: #2c2c2c;
+  --bg-secondary: #1d232a;
+  --bg-tertiary: #3f3f46;
+  --bg-hover: rgba(255, 255, 255, 0.1);
+
+  /* Waybar */
+  --bg-waybar: rgba(34, 34, 34, 0.6);
+
+  /* Sidebar */
+  --bg-sidebar: rgb(20, 20, 20);
+  --main-border: #3f3f46;
+
+  /* Window components */
+  --window-bg: #ffffff;
+  --window-header-bg: #f3f4f6;
+  --window-head-border: #e4e4e4;
+
+  /* Misc */
+  --overlay: rgba(0, 0, 0, 0.5);
+
+  /* Texts */
+  --text-color: #fafafa;
+}
+
+body.light-theme {
+  /* Main colors */
+  --primary-color: #667eea;
+  --secondary-color: #805ad5;
+
+  /* Main backgrounds */
+  --bg: #f8fafc;
+  --bg-secondary: #edf2f7;
+  --bg-tertiary: #e0e8ff;
+  --bg-hover: rgba(0, 0, 0, 0.1);
+
+  /* Waybar */
+  --bg-waybar: rgba(255, 255, 255, 0.6);
+
+  /* Sidebar */
+  --bg-sidebar: #ffffff;
+  --main-border: #e0e0e0;
+
+  /* Window components */
+  --window-bg: #ffffff;
+  --window-header-bg: #f1f5f9;
+  --window-head-border: #cbd5e0;
+
+  /* Misc */
+  --overlay: rgba(0, 0, 0, 0.3);
+
+  /* Texts */
+  --text-color: #1a202c;
 }
 
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
+  border: 1px solid transparent;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  transition: ease 0.3s;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 60px;
 }
 
 body {
-  font-family: "RobotoMono Nerd Font", monospace;
-  background-color: #2c2c2c;
+  font-family: "Fira Code", monospace;
+  background-color: var(--bg);
   color: var(--primary-color);
 }

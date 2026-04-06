@@ -1,0 +1,33 @@
+@if (sidebar.isOpen()) {
+  <div (click)="sidebar.toggle()" class="overlay"></div>
+}
+<div [class.active]="sidebar.isOpen()" class="side-menu">
+  <ul class="nav-links">
+    <div class="socials">
+      <!-- Linkedin -->
+      <a class="menu-btn" href="https://linkedin.com/in/franck-spadotto" target="_blank">
+        <lucide-icon [name]="Linkedin"></lucide-icon>
+      </a>
+
+      <!-- CV -->
+      <div class="cv-box">
+        <a class="menu-btn" href="Cv_Franck_Spadotto.pdf" target="_blank">
+          <lucide-icon [name]="FileUser"></lucide-icon>
+          <div class="cv-txt">Download CV</div>
+        </a>
+      </div>
+
+      <!-- Github -->
+      <a class="menu-btn" href="https://github.com/Franck-dev-hub" target="_blank">
+        <lucide-icon [name]="Github"></lucide-icon>
+      </a>
+    </div>
+
+    <!-- Links -->
+    <a (click)="sidebar.toggle()" class="menu-btn" href="#">Top</a>
+    <a (click)="sidebar.toggle()" class="menu-btn" href="#projects">Projects</a>
+    <a (click)="sidebar.toggle()" class="menu-btn" href="#stacks">Stacks</a>
+    <a (click)="sidebar.toggle()" class="menu-btn" href="#soft-skills">Soft skills</a>
+    <a (click)="sidebar.toggle()" class="menu-btn" href="#bottom">Bottom</a>
+  </ul>
+</div>

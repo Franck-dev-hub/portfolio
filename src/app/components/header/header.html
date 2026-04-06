@@ -1,7 +1,26 @@
 <nav class="waybar">
-  <div class="group-left"><span>~/Franck-dev-hub/portfolio</span></div>
-  <div class="group-center">
-    <p>{{ currentTime$ | async | date: "HH:mm:ss" }}</p>
+  <div class="group-left">
+    <button (click)="sidebarService.toggle()" [class.open]="sidebarService.isOpen()" class="burger">
+      <span id="burger-top"></span>
+      <span id="burger-center"></span>
+      <span id="burger-bottom"></span>
+    </button>
   </div>
-  <div class="group-right">project stacks soft-skills</div>
+
+  <div class="group-center">
+    <span>~/Franck-dev-hub/portfolio</span>
+  </div>
+
+  <div class="group-right">
+    <button (click)="toggleThemeService.toggleTheme()" class="toggle-theme">
+      @if (toggleThemeService.isDark) {
+        <lucide-icon [name]="Moon"></lucide-icon>
+      } @else {
+        <lucide-icon [name]="Sun"></lucide-icon>
+      }
+    </button>
+    <div class="time-display">{{ currentTime$ | async | date: "HH:mm:ss" }}</div>
+  </div>
+
+  <app-sidebar />
 </nav>
