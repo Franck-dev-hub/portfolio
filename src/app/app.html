@@ -1,5 +1,101 @@
 <div class="hyper-container">
   <app-header />
 
-  <app-description />
+  <app-intro
+    class="full-window"
+    heroText="I'm Franck S."
+    subtitle="Welcome to my portfolio"
+    title="Hello there !"
+    >,
+  </app-intro>
+
+  <h2>Stacks</h2>
+  <div class="stack-window">
+    <app-stacks
+      [labels]="{ PHP: 'Symfony', Python: 'FastAPI' }" title="Backend">
+    </app-stacks>
+
+    <app-stacks
+      [labels]="{ JS: 'Angular / React', CSS: 'Native' }" title="Frontend">
+    </app-stacks>
+
+    <app-stacks
+      [labels]="{ ORM: 'SQLAlchemy', SQL: 'Postgres / MariaDB' }" title="Databases">
+    </app-stacks>
+
+    <app-stacks
+      [labels]="{ Docker: 'Docker compose', Server: 'Nginx' }" title="DevOps">
+    </app-stacks>
+  </div>
+
+  <hr />
+
+  <h2>Projects</h2>
+  <div class="stack-window">
+    <app-projects
+      description="Online card collection storage"
+      goal="Centralise main trading card games in one place"
+      link="https://github.com/Franck-dev-hub/card_vault"
+      stacks="
+      <img src='https://img.shields.io/badge/FastAPI-009485.svg?logo=fastapi&logoColor=white' alt='FastAPI'>
+      <img src='https://img.shields.io/badge/React-%2320232a.svg?logo=react&logoColor=%2361DAFB' alt='React'>
+      <img src='https://img.shields.io/badge/Postgres-%23316192.svg?logo=postgresql&logoColor=white' alt='Postgres'>
+      <img src='https://img.shields.io/badge/Redis-%23DD0031.svg?logo=redis&logoColor=white' alt='Redis'>
+      <img src='https://img.shields.io/badge/nginx-009639?logo=nginx&logoColor=fff' alt='Nginx'>
+      <img src='https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff' alt='Docker'>
+"
+      title="Card vault"
+    >
+    </app-projects>
+
+    <app-projects
+      description="Personnal home assistant in docker"
+      goal="Share my personnal web app for domotic purpose"
+      link="https://github.com/Franck-dev-hub/home-assistant"
+      stacks="
+      <img src='https://img.shields.io/badge/Home-Assistant-18BCF2?logo=homeassistant&logoColor=fff&labelColor=18BCF2' alt='Home assistant'>
+      <img src='https://img.shields.io/badge/React-%2320232a.svg?logo=react&logoColor=%2361DAFB' alt='React'>
+      <img src='https://img.shields.io/badge/Ollama-fff?logo=ollama&logoColor=000' alt='Ollama'>
+      <img src='https://img.shields.io/badge/Mosquitto-3C2257?logo=eclipsemosquitto&logoColor=fff' alt='Mosquitto'>
+      <img src='https://img.shields.io/badge/Zigbee-EB0443?logo=zigbee&logoColor=fff' alt='Zigbee'>
+      <img src='https://img.shields.io/badge/Zigbee2MQTT-E87E04?logo=zigbee2mqtt&logoColor=fff' alt='Zigbee2MQTT'>
+      <img src='https://img.shields.io/badge/MQTT-660066?logo=mqtt&logoColor=fff' alt='MQTT'>
+"
+      title="Home assistant"
+    >
+    </app-projects>
+
+    <app-projects
+      description="Online portfolio"
+      goal="Quick knowledge overview and share development main stacks"
+      link="https://github.com/Franck-dev-hub/portfolio"
+      stacks="
+      <img src='https://img.shields.io/badge/Angular-%23DD0031.svg?logo=angular&logoColor=white' alt='Angular'>
+      <img src='https://img.shields.io/badge/GitHub%20Pages-121013?logo=github&logoColor=white' alt='Github pages'>
+"
+      title="Portfolio"
+    >
+    </app-projects>
+
+    <app-projects
+      description="Personnal Arch linux config"
+      goal="Share my arch / zsh / wayland / hyprland / ghostty / nvim config"
+      link="https://github.com/Franck-dev-hub/franck-dev-dotfiles"
+      stacks="
+      <img src='https://img.shields.io/badge/Lua-%232C2D72.svg?logo=lua&logoColor=white' alt='Lua'>
+      <img src='https://img.shields.io/badge/Bash-4EAA25?logo=gnubash&logoColor=fff' alt='Bash'>
+      <img src='https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff' alt='Lua'>
+      <img src='https://img.shields.io/badge/CSS-639?logo=css&logoColor=fff' alt='CSS'>
+"
+      title="Dotfiles"
+    >
+    </app-projects>
+  </div>
+
+  <hr />
+  <li>Contact form</li>
+  <li>Contact</li>
+  <li>lighthouse proche de 100%</li>
+  <li>responsive</li>
+  <li>SEO & accessibilité & WCAG</li>
 </div>

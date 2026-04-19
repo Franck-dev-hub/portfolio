@@ -1,10 +1,12 @@
 import { Component, signal } from "@angular/core";
 import { Header } from "./components/header/header";
-import { Description } from "./components/description/description";
+import { Intro } from "./components/windows/intro/intro";
+import { Projects } from "./components/windows/projects/projects";
+import { Stacks } from "./components/windows/stacks/stacks";
 
 @Component({
   selector: "app-root",
-  imports: [Header, Description],
+  imports: [Header, Intro, Projects, Stacks],
   templateUrl: "./app.html",
   styleUrl: "./app.css",
 })
