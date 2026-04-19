@@ -1,0 +1,38 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2rem 1rem 0 1rem;
+  text-align: center;
+  border-top: 1px solid var(--main-border);
+}
+
+.footer-text {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.footer-text.italic {
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.separator {
+  display: none;
+  color: var(--main-border);
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .footer {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .separator {
+    display: inline;
+  }
+}
