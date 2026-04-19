@@ -1,0 +1,41 @@
+.window {
+  background: var(--window-bg);
+  border-radius: 12px;
+  gap: 10px;
+  box-shadow: 0 8px 32px 0 var(--overlay);
+}
+
+.window:hover {
+  border-color: var(--primary-color);
+}
+
+.window-header {
+  background: var(--window-header-bg);
+  padding: 8px 15px;
+  border-radius: 12px 12px 0 0;
+  border-bottom: 1px solid var(--window-head-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.window-content {
+  padding: 32px;
+}
+
+.title {
+  color: var(--text-color);
+}
+
+.label {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.value {
+  color: var(--primary-color);
+}
+
+.stats p {
+  margin: 10px 0;
+}

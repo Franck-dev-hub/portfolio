@@ -1,0 +1,16 @@
+<section class="window active">
+  <header class="window-header">
+    <span class="title">{{ title }}</span>
+  </header>
+
+  <article class="window-content">
+    <div class="stats">
+      @for (label of labels | keyvalue; track label.key) {
+        <p>
+          <span class="label">{{ label.key }}:</span>
+          <span [innerHTML]="label.value" class="value"></span>
+        </p>
+      }
+    </div>
+  </article>
+</section>
