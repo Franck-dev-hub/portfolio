@@ -1,0 +1,18 @@
+<section class="window active">
+  <header class="window-header">
+    <span class="title">{{ title }}</span>
+  </header>
+
+  <article class="window-content">
+    <h1 class="hero-text">{{ heroText }}</h1>
+    <p class="subtitle">{{ subtitle }}</p>
+
+    <div class="stats">
+      @for (label of labels | keyvalue; track label.key) {
+        <p>
+          <span class="label">{{ label.key | uppercase }}:</span> {{ label.value }}
+        </p>
+      }
+    </div>
+  </article>
+</section>
