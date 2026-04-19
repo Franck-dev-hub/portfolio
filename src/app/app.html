@@ -9,28 +9,22 @@
     >,
   </app-intro>
 
-  <h2>Stacks</h2>
+  <h2 id="stacks">Stacks</h2>
   <div class="stack-window">
-    <app-stacks
-      [labels]="{ PHP: 'Symfony', Python: 'FastAPI' }" title="Backend">
+    <app-stacks [labels]="{ PHP: 'Symfony', Python: 'FastAPI' }" title="Backend"> </app-stacks>
+
+    <app-stacks [labels]="{ JS: 'Angular / React', CSS: 'Native' }" title="Frontend"> </app-stacks>
+
+    <app-stacks [labels]="{ ORM: 'SQLAlchemy', SQL: 'Postgres / MariaDB' }" title="Databases">
     </app-stacks>
 
-    <app-stacks
-      [labels]="{ JS: 'Angular / React', CSS: 'Native' }" title="Frontend">
-    </app-stacks>
-
-    <app-stacks
-      [labels]="{ ORM: 'SQLAlchemy', SQL: 'Postgres / MariaDB' }" title="Databases">
-    </app-stacks>
-
-    <app-stacks
-      [labels]="{ Docker: 'Docker compose', Server: 'Nginx' }" title="DevOps">
+    <app-stacks [labels]="{ Docker: 'Docker compose', Server: 'Nginx' }" title="DevOps">
     </app-stacks>
   </div>
 
   <hr />
 
-  <h2>Projects</h2>
+  <h2 id="projects">Projects</h2>
   <div class="stack-window">
     <app-projects
       description="Online card collection storage"
