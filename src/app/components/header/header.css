@@ -29,12 +29,12 @@
 .burger {
   display: flex;
   z-index: 1001;
-  position: relative;
   flex-direction: column;
   gap: 5px;
   background: none;
-  border: none;
   cursor: pointer;
+  padding: 0;
+  margin: 0;
 }
 
 .burger span {
@@ -73,12 +73,22 @@
 }
 
 .toggle-theme {
+  cursor: pointer;
   display: flex;
-  color: var(--text-color);
-  background-color: var(--bg-tertiary);
-  border-radius: 100px;
-  justify-content: center;
   align-items: center;
+  gap: 15px;
+  color: var(--text-color);
+  border: 1px solid var(--main-border);
+  background-color: var(--bg-tertiary);
+  border-radius: 6px;
+  padding: 6px;
+  text-decoration: none;
+  justify-content: center;
+}
+
+.toggle-theme a:hover {
+  color: var(--primary-color);
+  background-color: var(--bg-hover);
 }
 
 .time-display {
@@ -95,24 +105,43 @@
 
 /* ----- Mobile ----- */
 @media screen and (max-width: 600px) {
+  .waybar {
+    padding: 10px;
+  }
+
+  .group-left {
+    order: 2;
+    flex: 0;
+    justify-content: flex-end;
+  }
+
   .group-center {
     display: none;
   }
+
   .group-right {
-    flex: 2;
+    order: 1;
+    flex: 1;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-start;
   }
 
   .time-display {
     order: -1;
     position: absolute;
     left: 50%;
+    top: 25%;
     transform: translateX(-50%);
   }
 
   .toggle-theme {
-    margin-left: auto;
+    margin: 0;
+    display: flex;
+    background-color: transparent;
+    z-index: 1001;
+    list-style: none;
+    flex-direction: column;
+    gap: 12px;
+    padding: 6px;
   }
 }

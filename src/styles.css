@@ -99,3 +99,7 @@ body {
   background-color: var(--bg);
   color: var(--primary-color);
 }
+
+lucide-icon {
+  pointer-events: none;
+}

@@ -1,33 +1,57 @@
-@if (sidebar.isOpen()) {
-  <div (click)="sidebar.toggle()" class="overlay"></div>
-}
 <div [class.active]="sidebar.isOpen()" class="side-menu">
   <ul class="nav-links">
-    <div class="socials">
-      <!-- Linkedin -->
-      <a class="menu-btn" href="https://linkedin.com/in/franck-spadotto" target="_blank">
-        <lucide-icon [name]="Linkedin"></lucide-icon>
-      </a>
+    <hr class="separator" />
 
-      <!-- CV -->
-      <div class="cv-box">
-        <a class="menu-btn" href="Cv_Franck_Spadotto.pdf" target="_blank">
-          <lucide-icon [name]="FileUser"></lucide-icon>
-          <div class="cv-txt">Download CV</div>
-        </a>
-      </div>
+    <a
+      (click)="sidebar.close()"
+      class="menu-btn"
+      href="https://linkedin.com/in/franck-spadotto"
+      title="Linkedin"
+    >
+      <lucide-icon [img]="Linkedin"></lucide-icon>
+      <span class="link-text">Linkedin</span>
+    </a>
 
-      <!-- Github -->
-      <a class="menu-btn" href="https://github.com/Franck-dev-hub" target="_blank">
-        <lucide-icon [name]="Github"></lucide-icon>
-      </a>
-    </div>
+    <a (click)="sidebar.close()" class="menu-btn" href="v_Franck_Spadotto.pdf" title="Download CV">
+      <lucide-icon [img]="FileUser"></lucide-icon>
+      <span class="link-text">Download CV</span>
+    </a>
 
-    <!-- Links -->
-    <a (click)="sidebar.toggle()" class="menu-btn" href="#">Top</a>
-    <a (click)="sidebar.toggle()" class="menu-btn" href="#stacks">Stacks</a>
-    <a (click)="sidebar.toggle()" class="menu-btn" href="#projects">Projects</a>
-    <a (click)="sidebar.toggle()" class="menu-btn" href="#contact">Contact</a>
-    <a (click)="sidebar.toggle()" class="menu-btn" href="#bottom">Bottom</a>
+    <a
+      (click)="sidebar.close()"
+      class="menu-btn"
+      href="https://github.com/Franck-dev-hub"
+      title="Github"
+    >
+      <lucide-icon [img]="Github"></lucide-icon>
+      <span class="link-text">Github</span>
+    </a>
+
+    <hr class="separator" />
+
+    <a (click)="sidebar.close()" class="menu-btn" href="#" title="Top">
+      <lucide-icon [img]="ArrowUp"></lucide-icon>
+      <span class="link-text">Top</span>
+    </a>
+
+    <a (click)="sidebar.close()" class="menu-btn" href="#stacks" title="Stacks">
+      <lucide-icon [img]="Layers"></lucide-icon>
+      <span class="link-text">Stacks</span>
+    </a>
+
+    <a (click)="sidebar.close()" class="menu-btn" href="#projects" title="Projects">
+      <lucide-icon [img]="FolderCode"></lucide-icon>
+      <span class="link-text">Projects</span>
+    </a>
+
+    <a (click)="sidebar.close()" class="menu-btn" href="#contact" title="Contact">
+      <lucide-icon [img]="Mail"></lucide-icon>
+      <span class="link-text">Contact</span>
+    </a>
+
+    <a (click)="sidebar.close()" class="menu-btn" href="#bottom" title="Bottom">
+      <lucide-icon [img]="ArrowDown"></lucide-icon>
+      <span class="link-text">Bottom</span>
+    </a>
   </ul>
 </div>

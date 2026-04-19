@@ -7,4 +7,9 @@ export class SidebarService {
   toggle() {
     this.isOpen.update((v) => !v);
   }
+
+  close() {
+    this.isOpen.set(false);
+  }
+
 }
