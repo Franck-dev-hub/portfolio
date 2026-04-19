@@ -1,0 +1,23 @@
+<a href="{{ link }}">
+  <section class="window active">
+    <header class="window-header">
+      <span class="title">{{ title }}</span>
+    </header>
+
+    <article class="window-content">
+      <p class="description">{{ description }}</p>
+
+      <div class="stats">
+        <p>
+          <span class="label">STACKS:</span>
+          <span [innerHTML]="stacks" class="value"></span>
+        </p>
+
+        <p>
+          <span class="label">GOAL: </span>
+          <span class="value"> {{ goal }} </span>
+        </p>
+      </div>
+    </article>
+  </section>
+</a>
