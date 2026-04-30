@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy-test": "http-server dist/portfolio/browser",
+    "deploy": "npx ngh --dir=dist/portfolio/browser"
   },
   "private": true,
   "packageManager": "npm@11.11.0",
