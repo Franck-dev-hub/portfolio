@@ -3,7 +3,6 @@
   --primary-color: #667eea;
   --secondary-color: #9066ea;
   --accent-glow: rgba(102, 126, 234, 0.15);
-  --accent-border: rgba(102, 126, 234, 0.3);
 
   /* Backgrounds */
   --bg: #16161d;
@@ -11,7 +10,7 @@
   --bg-tertiary: #2a2a38;
   --bg-hover: rgba(255, 255, 255, 0.06);
 
-  /* Waybar / Sidebar */
+  /* Waybar - Sidebar */
   --bg-waybar: rgba(22, 22, 29, 0.75);
   --bg-sidebar: #111118;
 
@@ -28,6 +27,8 @@
   --overlay: rgba(0, 0, 0, 0.55);
   --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   --shadow-hover: 0 12px 40px rgba(102, 126, 234, 0.15);
+  --disabled: #cccccc;
+  --error: #ea667e;
 
   /* Text */
   --text-color: #f0eef8;
@@ -44,12 +45,11 @@
   --duration: 0.2s;
 }
 
-/* ── Light theme ────────────────────────────────────────── */
+/* ----- Light theme ----- */
 body.light-theme {
   --primary-color: #5a6fd6;
   --secondary-color: #7c3aed;
   --accent-glow: rgba(90, 111, 214, 0.1);
-  --accent-border: rgba(90, 111, 214, 0.25);
 
   --bg: #f4f4f8;
   --bg-secondary: #ecedf5;
@@ -69,6 +69,8 @@ body.light-theme {
   --overlay: rgba(0, 0, 0, 0.25);
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   --shadow-hover: 0 8px 30px rgba(90, 111, 214, 0.12);
+  --disabled: #cccccc;
+  --error: #d65a6f;
 
   --text-color: #1a1a2e;
   --text-secondary: #5a5a7a;
