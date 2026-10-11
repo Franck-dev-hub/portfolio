@@ -1,24 +1,27 @@
-import { Component } from "@angular/core";
-import { interval, map, Observable } from "rxjs";
-import { AsyncPipe, DatePipe } from "@angular/common";
-import { SidebarService } from "../../services/sidebar/sidebar";
-import { SidebarComponent } from "../sidebar/sidebar";
-import { ToggleThemeService } from "../../services/toggleTheme/toggle-theme";
-import { LucideAngularModule, Moon, Sun } from "lucide-angular";
+import { Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { DatePipe } from '@angular/common';
+import { map, timer } from 'rxjs';
+import { LucideAngularModule, Moon, Sun } from 'lucide-angular';
+import { I18n } from '../../core/i18n';
+import { Sidebar } from '../../core/sidebar';
+import { Theme } from '../../core/theme';
+import { SidebarMenu } from '../sidebar/sidebar';
 
 @Component({
-  selector: "app-header",
-  imports: [AsyncPipe, DatePipe, SidebarComponent, LucideAngularModule],
-  templateUrl: "./header.html",
-  styleUrl: "./header.css",
+  selector: 'app-header',
+  imports: [DatePipe, LucideAngularModule, SidebarMenu],
+  templateUrl: './header.html',
+  styleUrl: './header.css',
 })
 export class Header {
-  currentTime$: Observable<Date> = interval(1000).pipe(map(() => new Date()));
+  protected readonly i18n = inject(I18n);
+  protected readonly theme = inject(Theme);
+  protected readonly sidebar = inject(Sidebar);
+  protected readonly t = this.i18n.t;
+  protected readonly now = toSignal(timer(0, 1000).pipe(map(() => new Date())), {
+    initialValue: new Date(),
+  });
   protected readonly Moon = Moon;
   protected readonly Sun = Sun;
-
-  constructor(
-    public sidebarService: SidebarService,
-    public toggleThemeService: ToggleThemeService,
-  ) {}
 }

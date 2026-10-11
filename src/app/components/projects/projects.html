@@ -1,0 +1,37 @@
+<section aria-labelledby="projects-title">
+  <h2 id="projects-title">{{ t().projectList.title }}</h2>
+
+  <div class="grid">
+    @for (project of projects; track project.id) {
+      <app-window [title]="project.name">
+        <p class="description">{{ t().projects[project.id].description }}</p>
+
+        <dl class="details">
+          <div>
+            <dt>{{ t().projectList.stack }}</dt>
+            <dd class="badges">
+              @for (badge of project.badges; track badge.label) {
+                <img [alt]="badge.label" [src]="badge.url" height="20" loading="lazy" />
+              }
+            </dd>
+          </div>
+          <div>
+            <dt>{{ t().projectList.goal }}</dt>
+            <dd>{{ t().projects[project.id].goal }}</dd>
+          </div>
+        </dl>
+
+        <p class="links">
+          <a [href]="project.repository" rel="noopener noreferrer" target="_blank">
+            {{ t().projectList.code }} ↗
+          </a>
+          @if (project.website) {
+            <a [href]="project.website" rel="noopener noreferrer" target="_blank">
+              {{ t().projectList.website }} ↗
+            </a>
+          }
+        </p>
+      </app-window>
+    }
+  </div>
+</section>

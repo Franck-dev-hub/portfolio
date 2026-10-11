@@ -1,26 +1,45 @@
-<nav class="waybar">
+<header class="waybar">
   <div class="group-left">
-    <button (click)="sidebarService.toggle()" [class.open]="sidebarService.isOpen()" class="burger">
-      <span id="burger-top"></span>
-      <span id="burger-center"></span>
-      <span id="burger-bottom"></span>
+    <button
+      (click)="sidebar.toggle()"
+      [attr.aria-expanded]="sidebar.isOpen()"
+      [attr.aria-label]="t().header.menu"
+      [class.open]="sidebar.isOpen()"
+      aria-controls="side-menu"
+      class="burger"
+      type="button"
+    >
+      <span aria-hidden="true" class="burger-top"></span>
+      <span aria-hidden="true" class="burger-center"></span>
+      <span aria-hidden="true" class="burger-bottom"></span>
     </button>
   </div>
 
-  <div class="group-center">
-    <span>~/Franck-dev-hub/portfolio</span>
-  </div>
+  <div class="group-center">~/Franck-dev-hub/portfolio</div>
 
   <div class="group-right">
-    <button (click)="toggleThemeService.toggleTheme()" class="toggle-theme">
-      @if (toggleThemeService.isDark) {
-        <lucide-icon [name]="Moon"></lucide-icon>
-      } @else {
-        <lucide-icon [name]="Sun"></lucide-icon>
-      }
+    <button
+      (click)="i18n.toggle()"
+      [attr.aria-label]="t().header.switchLanguage"
+      [title]="t().header.switchLanguage"
+      class="pill"
+      type="button"
+    >
+      {{ i18n.lang() === 'en' ? 'FR' : 'EN' }}
     </button>
-    <div class="time-display">{{ currentTime$ | async | date: "HH:mm:ss" }}</div>
-  </div>
 
-  <app-sidebar />
-</nav>
+    <button
+      (click)="theme.toggle()"
+      [attr.aria-label]="t().header.toggleTheme"
+      [title]="t().header.toggleTheme"
+      class="pill"
+      type="button"
+    >
+      <lucide-icon [img]="theme.isDark() ? Moon : Sun" [size]="18" />
+    </button>
+
+    <time class="clock">{{ now() | date: 'HH:mm:ss' }}</time>
+  </div>
+</header>
+
+<app-sidebar />

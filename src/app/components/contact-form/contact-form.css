@@ -1,0 +1,90 @@
+.contact-window {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+input,
+textarea {
+  padding: 12px 15px;
+  font: inherit;
+  color: var(--text-color);
+  background: var(--bg-secondary);
+  border: 2px solid var(--main-border);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--duration) var(--ease);
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+[aria-invalid='true'] {
+  border-color: var(--error);
+}
+
+textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+button {
+  padding: 14px;
+  font: inherit;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition:
+    background-color var(--duration) var(--ease),
+    transform 0.1s ease;
+}
+
+button:hover:not(:disabled) {
+  background-color: var(--secondary-color);
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.error {
+  font-size: 0.8rem;
+  color: var(--error);
+}
+
+.status {
+  margin: 0;
+  color: var(--text-color);
+}
+
+.status.error {
+  font-size: inherit;
+  color: var(--error);
+}

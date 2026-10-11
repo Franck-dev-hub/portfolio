@@ -1,105 +1,126 @@
+@import '@fontsource-variable/fira-code';
+
 :root {
+  color-scheme: dark;
+
   /* Accent */
-  --primary-color: #667eea;
-  --secondary-color: #9066ea;
-  --accent-glow: rgba(102, 126, 234, 0.15);
+  --primary-color: light-dark(#5a6fd6, #667eea);
+  --secondary-color: light-dark(#7c3aed, #9066ea);
 
   /* Backgrounds */
-  --bg: #16161d;
-  --bg-secondary: #1e1e28;
-  --bg-tertiary: #2a2a38;
-  --bg-hover: rgba(255, 255, 255, 0.06);
+  --bg: light-dark(#f4f4f8, #16161d);
+  --bg-secondary: light-dark(#ecedf5, #1e1e28);
+  --bg-tertiary: light-dark(#e2e3f0, #2a2a38);
+  --bg-hover: light-dark(rgba(0, 0, 0, 0.05), rgba(255, 255, 255, 0.06));
 
   /* Waybar - Sidebar */
-  --bg-waybar: rgba(22, 22, 29, 0.75);
-  --bg-sidebar: #111118;
+  --bg-waybar: light-dark(rgba(255, 255, 255, 0.8), rgba(22, 22, 29, 0.75));
+  --bg-sidebar: light-dark(#ffffff, #111118);
 
   /* Window */
-  --window-bg: #1e1e28;
-  --window-header-bg: #25253380;
-  --window-head-border: rgba(255, 255, 255, 0.07);
+  --window-bg: light-dark(#ffffff, #1e1e28);
+  --window-header-bg: light-dark(#f1f2f9, #25253380);
+  --window-head-border: light-dark(rgba(0, 0, 0, 0.08), rgba(255, 255, 255, 0.07));
 
   /* Borders */
-  --main-border: rgba(255, 255, 255, 0.08);
-  --border-accent: rgba(102, 126, 234, 0.35);
+  --main-border: light-dark(rgba(0, 0, 0, 0.09), rgba(255, 255, 255, 0.08));
+  --border-accent: light-dark(rgba(90, 111, 214, 0.3), rgba(102, 126, 234, 0.35));
 
   /* Misc */
-  --overlay: rgba(0, 0, 0, 0.55);
-  --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  --shadow-hover: 0 12px 40px rgba(102, 126, 234, 0.15);
-  --disabled: #cccccc;
-  --error: #ea667e;
+  --shadow: 0 8px 32px light-dark(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.4));
+  --error: light-dark(#d65a6f, #ea667e);
 
   /* Text */
-  --text-color: #f0eef8;
-  --text-secondary: #9490b0;
-  --text-muted: #5e5c78;
+  --text-color: light-dark(#1a1a2e, #f0eef8);
+  --text-secondary: light-dark(#5a5a7a, #9490b0);
 
   /* Radius */
   --radius-sm: 8px;
   --radius-md: 12px;
-  --radius-lg: 16px;
 
   /* Transitions */
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --duration: 0.2s;
+
+  /* Layout */
+  --header-height: 48px;
+  --sidebar-width: 70px;
 }
 
-/* ----- Light theme ----- */
-body.light-theme {
-  --primary-color: #5a6fd6;
-  --secondary-color: #7c3aed;
-  --accent-glow: rgba(90, 111, 214, 0.1);
-
-  --bg: #f4f4f8;
-  --bg-secondary: #ecedf5;
-  --bg-tertiary: #e2e3f0;
-  --bg-hover: rgba(0, 0, 0, 0.05);
-
-  --bg-waybar: rgba(255, 255, 255, 0.8);
-  --bg-sidebar: #ffffff;
-
-  --window-bg: #ffffff;
-  --window-header-bg: #f1f2f9;
-  --window-head-border: rgba(0, 0, 0, 0.08);
-
-  --main-border: rgba(0, 0, 0, 0.09);
-  --border-accent: rgba(90, 111, 214, 0.3);
-
-  --overlay: rgba(0, 0, 0, 0.25);
-  --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  --shadow-hover: 0 8px 30px rgba(90, 111, 214, 0.12);
-  --disabled: #cccccc;
-  --error: #d65a6f;
-
-  --text-color: #1a1a2e;
-  --text-secondary: #5a5a7a;
-  --text-muted: #9999b8;
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+  }
 }
 
-* {
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  border: 1px solid transparent;
-  cursor: default;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
-  transition: ease 0.3s;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 60px;
+  scroll-padding-top: calc(var(--header-height) + 16px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
-  font-family: "Fira Code", monospace;
+  margin: 0;
+  font-family: 'Fira Code Variable', ui-monospace, monospace;
+  line-height: 1.5;
+  color: var(--text-color);
   background-color: var(--bg);
+  transition: background-color 0.3s ease;
+}
+
+h2 {
+  margin: 0 0 20px;
   color: var(--primary-color);
+}
+
+a {
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 800px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1400px) {
+  .grid-wide {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 lucide-icon {

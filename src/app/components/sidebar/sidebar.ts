@@ -1,33 +1,46 @@
-import { Component } from "@angular/core";
-import { SidebarService } from "../../services/sidebar/sidebar";
+import { Component, inject } from '@angular/core';
 import {
-  LucideAngularModule,
-  Github,
-  Linkedin,
-  FileUser,
-  ArrowUp,
-  Layers,
-  FolderCode,
-  Mail,
   ArrowDown,
-} from "lucide-angular";
+  ArrowUp,
+  FolderCode,
+  Github,
+  Layers,
+  Linkedin,
+  LucideAngularModule,
+  LucideIconData,
+  Mail,
+} from 'lucide-angular';
+import { I18n } from '../../core/i18n';
+import { Sidebar } from '../../core/sidebar';
+import { Translations } from '../../core/translations';
+
+interface MenuLink {
+  key: Exclude<keyof Translations['sidebar'], 'label'>;
+  href: string;
+  icon: LucideIconData;
+}
 
 @Component({
-  selector: "app-sidebar",
+  selector: 'app-sidebar',
   imports: [LucideAngularModule],
-  templateUrl: "./sidebar.html",
-  styleUrl: "./sidebar.css",
+  templateUrl: './sidebar.html',
+  styleUrl: './sidebar.css',
+  host: { '(document:keydown.escape)': 'sidebar.close()' },
 })
-export class SidebarComponent {
-  readonly Github = Github;
-  readonly Linkedin = Linkedin;
-  readonly FileUser = FileUser;
-  readonly ArrowUp = ArrowUp;
-  readonly Layers = Layers;
-  readonly FolderCode = FolderCode;
-  readonly Mail = Mail;
-  readonly ArrowDown = ArrowDown;
-  protected readonly SidebarService = SidebarService;
+export class SidebarMenu {
+  protected readonly sidebar = inject(Sidebar);
+  protected readonly t = inject(I18n).t;
 
-  constructor(public sidebar: SidebarService) {}
+  protected readonly externalLinks: MenuLink[] = [
+    { key: 'linkedin', href: 'https://linkedin.com/in/franck-spadotto', icon: Linkedin },
+    { key: 'github', href: 'https://github.com/Franck-dev-hub', icon: Github },
+  ];
+
+  protected readonly sectionLinks: MenuLink[] = [
+    { key: 'top', href: '#', icon: ArrowUp },
+    { key: 'stacks', href: '#stacks', icon: Layers },
+    { key: 'projects', href: '#projects', icon: FolderCode },
+    { key: 'contact', href: '#contact', icon: Mail },
+    { key: 'bottom', href: '#bottom', icon: ArrowDown },
+  ];
 }

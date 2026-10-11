@@ -1,57 +1,40 @@
-<div [class.active]="sidebar.isOpen()" class="side-menu">
+<nav
+  [attr.aria-label]="t().sidebar.label"
+  [class.active]="sidebar.isOpen()"
+  class="side-menu"
+  id="side-menu"
+>
   <ul class="nav-links">
-    <hr class="separator" />
+    @for (link of externalLinks; track link.key) {
+      <li>
+        <a
+          (click)="sidebar.close()"
+          [href]="link.href"
+          [title]="t().sidebar[link.key]"
+          class="menu-btn"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <lucide-icon [img]="link.icon" />
+          <span class="link-text">{{ t().sidebar[link.key] }}</span>
+        </a>
+      </li>
+    }
 
-    <a
-      (click)="sidebar.close()"
-      class="menu-btn"
-      href="https://linkedin.com/in/franck-spadotto"
-      title="Linkedin"
-    >
-      <lucide-icon [img]="Linkedin"></lucide-icon>
-      <span class="link-text">Linkedin</span>
-    </a>
+    <li aria-hidden="true" class="separator"></li>
 
-    <a (click)="sidebar.close()" class="menu-btn" href="v_Franck_Spadotto.pdf" title="Download CV">
-      <lucide-icon [img]="FileUser"></lucide-icon>
-      <span class="link-text">Download CV</span>
-    </a>
-
-    <a
-      (click)="sidebar.close()"
-      class="menu-btn"
-      href="https://github.com/Franck-dev-hub"
-      title="Github"
-    >
-      <lucide-icon [img]="Github"></lucide-icon>
-      <span class="link-text">Github</span>
-    </a>
-
-    <hr class="separator" />
-
-    <a (click)="sidebar.close()" class="menu-btn" href="#" title="Top">
-      <lucide-icon [img]="ArrowUp"></lucide-icon>
-      <span class="link-text">Top</span>
-    </a>
-
-    <a (click)="sidebar.close()" class="menu-btn" href="#stacks" title="Stacks">
-      <lucide-icon [img]="Layers"></lucide-icon>
-      <span class="link-text">Stacks</span>
-    </a>
-
-    <a (click)="sidebar.close()" class="menu-btn" href="#projects" title="Projects">
-      <lucide-icon [img]="FolderCode"></lucide-icon>
-      <span class="link-text">Projects</span>
-    </a>
-
-    <a (click)="sidebar.close()" class="menu-btn" href="#contact" title="Contact">
-      <lucide-icon [img]="Mail"></lucide-icon>
-      <span class="link-text">Contact</span>
-    </a>
-
-    <a (click)="sidebar.close()" class="menu-btn" href="#bottom" title="Bottom">
-      <lucide-icon [img]="ArrowDown"></lucide-icon>
-      <span class="link-text">Bottom</span>
-    </a>
+    @for (link of sectionLinks; track link.key) {
+      <li>
+        <a
+          (click)="sidebar.close()"
+          [href]="link.href"
+          [title]="t().sidebar[link.key]"
+          class="menu-btn"
+        >
+          <lucide-icon [img]="link.icon" />
+          <span class="link-text">{{ t().sidebar[link.key] }}</span>
+        </a>
+      </li>
+    }
   </ul>
-</div>
+</nav>

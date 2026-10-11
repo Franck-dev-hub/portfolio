@@ -1,0 +1,17 @@
+.hero {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3rem);
+  color: var(--primary-color);
+}
+
+.role {
+  margin: 12px 0 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.subtitle {
+  margin: 8px 0 0;
+  color: var(--text-secondary);
+}

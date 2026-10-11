@@ -1,0 +1,68 @@
+<section aria-labelledby="contact-title">
+  <h2 id="contact-title">{{ t().contact.title }}</h2>
+
+  <app-window class="contact-window" title="~/contact">
+    <form (ngSubmit)="submit()" [formGroup]="form" novalidate>
+      <div class="field">
+        <label for="contact-name">{{ t().contact.name }}</label>
+        <input
+          [attr.aria-invalid]="showError('name')"
+          autocomplete="name"
+          formControlName="name"
+          id="contact-name"
+          type="text"
+        />
+        @if (showError('name')) {
+          <span class="error">{{ t().contact.required }}</span>
+        }
+      </div>
+
+      <div class="field">
+        <label for="contact-email">{{ t().contact.email }}</label>
+        <input
+          [attr.aria-invalid]="showError('email')"
+          autocomplete="email"
+          formControlName="email"
+          id="contact-email"
+          type="email"
+        />
+        @if (showError('email')) {
+          <span class="error">
+            {{
+              form.controls.email.hasError('required')
+                ? t().contact.required
+                : t().contact.invalidEmail
+            }}
+          </span>
+        }
+      </div>
+
+      <div class="field">
+        <label for="contact-message">{{ t().contact.message }}</label>
+        <textarea
+          [attr.aria-invalid]="showError('message')"
+          formControlName="message"
+          id="contact-message"
+        ></textarea>
+        @if (showError('message')) {
+          <span class="error">{{ t().contact.required }}</span>
+        }
+      </div>
+
+      <button [disabled]="form.invalid || status() === 'sending'" type="submit">
+        {{ status() === 'sending' ? t().contact.sending : t().contact.send }}
+      </button>
+
+      <p [class.error]="status() === 'error'" aria-live="polite" class="status" role="status">
+        @switch (status()) {
+          @case ('sent') {
+            {{ t().contact.sent }}
+          }
+          @case ('error') {
+            {{ t().contact.error }}
+          }
+        }
+      </p>
+    </form>
+  </app-window>
+</section>

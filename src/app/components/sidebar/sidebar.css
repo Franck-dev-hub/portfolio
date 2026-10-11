@@ -1,74 +1,53 @@
-/* ----- Sidebar ----- */
 .side-menu {
   position: fixed;
   top: 0;
   left: 0;
-  width: 70px;
-  height: 100vh;
-  background: var(--bg-sidebar);
-  backdrop-filter: blur(15px);
   z-index: 999;
-  transition: width 0.4s ease;
+  width: var(--sidebar-width);
+  height: 100vh;
+  padding-top: var(--header-height);
   overflow: hidden;
-  padding-top: 24px;
+  background: var(--bg-sidebar);
   border-right: 1px solid var(--main-border);
+  transition:
+    width 0.4s ease,
+    transform 0.4s ease;
 }
 
-/* ----- Sidebar active ----- */
 .side-menu.active {
   width: 280px;
 }
 
-/* Handle texts */
-.link-text {
-  display: none;
-  white-space: nowrap;
-}
-
-.side-menu.active .link-text {
-  display: inline-block;
-}
-
-/* ----- Socials ----- */
-.socials {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  padding: 10px;
-  justify-content: space-around;
-  width: 100%;
-}
-
-/* ----- Links ----- */
 .nav-links {
-  list-style: none;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin: 0;
   padding: 10px;
+  list-style: none;
 }
 
-.nav-links a:hover {
-  color: var(--primary-color);
-  background-color: var(--bg-hover);
-}
-
-.nav-links * {
-  cursor: pointer;
+.separator {
+  margin: 4px 0;
+  border-top: 1px solid var(--main-border);
 }
 
 .menu-btn {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 15px;
+  min-width: 45px;
+  padding: 12px;
   color: var(--text-color);
+  text-decoration: none;
   border: 1px solid var(--main-border);
   border-radius: 6px;
-  padding: 12px;
-  text-decoration: none;
-  min-width: 45px;
-  justify-content: center;
+}
+
+.menu-btn:hover {
+  color: var(--primary-color);
+  background-color: var(--bg-hover);
 }
 
 .side-menu.active .menu-btn {
@@ -76,11 +55,13 @@
   padding: 10px 20px;
 }
 
-.separator {
-  border: 0;
-  border-top: 1px solid var(--main-border);
-  margin: 10px 0;
-  width: 100%;
+.link-text {
+  display: none;
+  white-space: nowrap;
+}
+
+.side-menu.active .link-text {
+  display: inline;
 }
 
 lucide-icon {
@@ -89,14 +70,17 @@ lucide-icon {
   height: 24px;
 }
 
-@media screen and (max-width: 600px) {
-  .side-menu {
-    left: -300px;
+@media (max-width: 600px) {
+  .side-menu,
+  .side-menu.active {
     width: 280px;
   }
 
+  .side-menu {
+    transform: translateX(-100%);
+  }
+
   .side-menu.active {
-    transform: translateX(300px);
-    transition: 0.4s ease;
+    transform: translateX(0);
   }
 }

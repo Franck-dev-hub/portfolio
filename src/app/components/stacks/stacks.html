@@ -1,0 +1,18 @@
+<section aria-labelledby="stacks-title">
+  <h2 id="stacks-title">{{ t().stacks.title }}</h2>
+
+  <div class="grid grid-wide">
+    @for (category of stacks; track category.id) {
+      <app-window [title]="t().stacks[category.id]">
+        <dl class="details">
+          @for (item of category.items; track item.label) {
+            <div>
+              <dt>{{ item.label }}</dt>
+              <dd>{{ item.value }}</dd>
+            </div>
+          }
+        </dl>
+      </app-window>
+    }
+  </div>
+</section>
